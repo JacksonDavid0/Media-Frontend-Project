@@ -1,0 +1,135 @@
+@mixin responsive-profile-layout {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .profile-page-main-content {
+      padding: 30px;
+    }
+    .profile-page-section-container {
+      width: 75%;
+      padding: 30px;
+    }
+    .profile-page-title {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+    .profile-page-avatar {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+    .profile-page-detail-item {
+      font-size: 1rem;
+      padding: 12px;
+    }
+    .profile-page-edit-btn {
+      font-size: 1rem;
+    }
+    .profile-page-edit-input {
+      width: calc(60% - 50px); /* Adjusted for tablet */
+      padding: 10px 12px;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .profile-page-main-content {
+      padding: 15px;
+    }
+    .profile-page-section-container {
+      width: 95%;
+      padding: 20px;
+    }
+    .profile-page-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .profile-page-avatar {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+    }
+    .profile-page-detail-item {
+      font-size: 0.95rem;
+      padding: 10px;
+    }
+    .profile-page-edit-btn {
+      font-size: 0.95rem;
+    }
+    .profile-page-edit-input {
+      width: calc(60% - 40px); /* Adjusted for mobile */
+      padding: 8px 10px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .profile-page-main-content {
+      padding: 10px;
+    }
+    .profile-page-section-container {
+      width: 100%;
+      padding: 15px;
+    }
+    .profile-page-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    .profile-page-avatar {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+    .profile-page-detail-item {
+      font-size: 0.85rem;
+      padding: 8px;
+    }
+    .profile-page-edit-btn {
+      font-size: 0.85rem;
+    }
+    .profile-page-message,
+    .profile-page-error-message,
+    .profile-page-no-data {
+      font-size: 0.85rem;
+    }
+    .profile-page-edit-input {
+      width: calc(60% - 30px); /* Adjusted for smaller mobile */
+      padding: 6px 8px;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .profile-page-main-content {
+      padding: 5px;
+    }
+    .profile-page-section-container {
+      width: 100%;
+      padding: 10px;
+    }
+    .profile-page-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .profile-page-avatar {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 8px;
+    }
+    .profile-page-detail-item {
+      font-size: 0.75rem;
+      padding: 6px;
+    }
+    .profile-page-edit-btn {
+      font-size: 0.75rem;
+    }
+    .profile-page-message,
+    .profile-page-error-message,
+    .profile-page-no-data {
+      font-size: 0.75rem;
+    }
+  }
+  .profile-page-edit-input {
+    width: calc(60% - 20px);
+    padding: 4px 6px;
+    font-size: 0.75rem;
+  }
+}

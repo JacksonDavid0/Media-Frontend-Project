@@ -1,0 +1,379 @@
+@mixin responsive-home-layout {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .home-main-content {
+      flex-direction: column;
+      .home-profile-sidebar {
+        width: 100%;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid #444;
+        .home-profile-card {
+          flex-direction: row;
+          align-items: center;
+          .home-profile-avatar {
+            margin-right: 20px;
+          }
+          .home-profile-name,
+          .home-profile-username,
+          .home-profile-bio {
+            text-align: left;
+          }
+          .home-profile-stats {
+            justify-content: flex-start;
+          }
+        }
+      }
+      .home-content-area {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+
+    .home-top-nav {
+      transition: 1s ease-in-out;
+
+      .home-nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        transition: 1s ease-in-out;
+        a {
+          padding: 10px 15px;
+          font-size: 0.95rem;
+          svg {
+            margin-right: 8px;
+          }
+        }
+      }
+      .home-mobile-menu-toggle {
+        display: none;
+      }
+    }
+
+    .home-bottom-nav {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-top-nav {
+      padding: 10px 15px;
+      .home-logo {
+        font-size: 1.2rem;
+      }
+      .home-mobile-menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+      }
+      .home-nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #282c34;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        transform: translateY(-500px);
+        &.open {
+          display: flex;
+          transform: translateY(0px);
+        }
+        a {
+          padding: 15px 20px;
+          border-bottom: 1px solid #444;
+          font-size: 1rem;
+          svg {
+            margin-right: 10px;
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .home-main-content {
+      flex-direction: column;
+      padding-bottom: 60px;
+      .home-profile-sidebar {
+        width: 100%;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid #444;
+        .home-profile-card {
+          flex-direction: column;
+          text-align: center;
+          .home-profile-avatar {
+            margin-bottom: 10px;
+            margin-right: 0;
+          }
+          .home-profile-name,
+          .home-profile-username,
+          .home-profile-bio {
+            text-align: center;
+          }
+          .home-profile-stats {
+            justify-content: center;
+            flex-wrap: wrap;
+            span {
+              margin: 5px 10px;
+            }
+          }
+        }
+      }
+      .home-content-area {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+
+    .home-bottom-nav {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #282c34;
+      border-top: 1px solid #444;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      z-index: 1000;
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #e0e0e0;
+        font-size: 0.7rem;
+        text-decoration: none;
+        &.active {
+          color: #61dafb;
+        }
+        svg {
+          font-size: 1.4rem;
+          margin-bottom: 3px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .home-top-nav {
+      padding: 8px 10px;
+      .home-logo {
+        font-size: 1.1rem;
+      }
+      .home-mobile-menu-toggle {
+        font-size: 1.3rem;
+      }
+      .home-nav-links {
+        top: 50px;
+        a {
+          padding: 12px 15px;
+          font-size: 0.9rem;
+          svg {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+
+    .home-main-content {
+      .home-profile-sidebar {
+        padding: 10px;
+        .home-profile-card {
+          .home-profile-avatar {
+            width: 80px;
+            height: 80px;
+          }
+          .home-profile-name {
+            font-size: 1.2rem;
+          }
+          .home-profile-username {
+            font-size: 0.8rem;
+          }
+          .home-profile-bio {
+            font-size: 0.85rem;
+          }
+          .home-profile-stats {
+            span {
+              font-size: 0.8rem;
+              margin: 3px 8px;
+            }
+          }
+        }
+      }
+      .home-content-area {
+        padding: 10px;
+        .home-section-title {
+          font-size: 1.3rem;
+          margin-bottom: 15px;
+        }
+        .home-post-card,
+        .home-message-item,
+        .home-notification-item,
+        .home-add-post-form,
+        .home-user-profile-details {
+          padding: 12px;
+          margin-bottom: 12px;
+        }
+        .home-post-header {
+          .home-post-avatar {
+            width: 40px;
+            height: 40px;
+          }
+          .home-post-author {
+            font-size: 0.9rem;
+          }
+        }
+        .home-post-content {
+          font-size: 0.85rem;
+        }
+        .home-post-actions {
+          font-size: 0.8rem;
+        }
+        .home-message-sender,
+        .home-notification-type {
+          font-size: 0.85rem;
+        }
+        .home-message-preview,
+        .home-notification-content {
+          font-size: 0.8rem;
+        }
+        .home-post-textarea {
+          font-size: 0.85rem;
+        }
+        .home-submit-post-btn {
+          padding: 8px 15px;
+          font-size: 0.9rem;
+        }
+        .home-profile-detail-item {
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    .home-bottom-nav {
+      padding: 8px 0;
+      a {
+        font-size: 0.65rem;
+        svg {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    .home-top-nav {
+      padding: 5px 8px;
+      .home-logo {
+        font-size: 1rem;
+      }
+      .home-mobile-menu-toggle {
+        font-size: 1.2rem;
+      }
+      .home-nav-links {
+        top: 40px;
+        a {
+          padding: 10px 12px;
+          font-size: 0.8rem;
+          svg {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+
+    .home-main-content {
+      .home-profile-sidebar {
+        padding: 8px;
+        .home-profile-card {
+          .home-profile-avatar {
+            width: 60px;
+            height: 60px;
+          }
+          .home-profile-name {
+            font-size: 1rem;
+          }
+          .home-profile-username {
+            font-size: 0.7rem;
+          }
+          .home-profile-bio {
+            font-size: 0.75rem;
+          }
+          .home-profile-stats {
+            span {
+              font-size: 0.7rem;
+              margin: 2px 5px;
+            }
+          }
+        }
+      }
+      .home-content-area {
+        padding: 8px;
+        .home-section-title {
+          font-size: 1.1rem;
+          margin-bottom: 10px;
+        }
+        .home-post-card,
+        .home-message-item,
+        .home-notification-item,
+        .home-add-post-form,
+        .home-user-profile-details {
+          padding: 10px;
+          margin-bottom: 10px;
+        }
+        .home-post-header {
+          .home-post-avatar {
+            width: 30px;
+            height: 30px;
+          }
+          .home-post-author {
+            font-size: 0.8rem;
+          }
+        }
+        .home-post-content {
+          font-size: 0.75rem;
+        }
+        .home-post-actions {
+          font-size: 0.7rem;
+        }
+        .home-message-sender,
+        .home-notification-type {
+          font-size: 0.75rem;
+        }
+        .home-message-preview,
+        .home-notification-content {
+          font-size: 0.7rem;
+        }
+        .home-post-textarea {
+          font-size: 0.75rem;
+        }
+        .home-submit-post-btn {
+          padding: 6px 10px;
+          font-size: 0.8rem;
+        }
+        .home-profile-detail-item {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .home-bottom-nav {
+      padding: 5px 0;
+      a {
+        font-size: 0.6rem;
+        svg {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

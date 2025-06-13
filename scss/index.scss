@@ -1,0 +1,10 @@
+@use "./login/login-syle.scss";
+@use "./register/register-style.scss";
+@use "./home/home-style.scss";
+@use "./profile/profile-style.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}

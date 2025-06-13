@@ -1,0 +1,164 @@
+@mixin responsive-login-box {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 65%;
+    height: auto;
+    padding: 35px;
+    border-radius: 10px;
+    border: 3px solid #505258;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 35px;
+    }
+
+    form {
+      margin: 25px auto;
+      .form-group {
+        label {
+          font-size: 1.2rem;
+        }
+        input {
+          height: 55px;
+          font-size: 1.15rem;
+        }
+        .eye-icon {
+          font-size: 1.4rem;
+          transform: translateY(20%);
+          right: 20px;
+        }
+        button {
+          padding: 18px;
+          font-size: 1.2rem;
+        }
+      }
+      .link {
+        font-size: 1rem;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+    height: auto;
+    padding: 25px;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+
+    form {
+      margin: 20px auto;
+      .form-group {
+        label {
+          font-size: 1.1rem;
+        }
+        input {
+          height: 45px;
+          font-size: 1rem;
+        }
+        .eye-icon {
+          font-size: 1.2rem;
+          transform: translateY(18%);
+          right: 15px;
+        }
+        button {
+          padding: 12px;
+          font-size: 1.1rem;
+        }
+      }
+      .link {
+        font-size: 0.95rem;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    border: 0;
+    box-shadow: none;
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin: 15px auto;
+      .form-group {
+        width: 95%;
+        label {
+          font-size: 1rem;
+        }
+        input {
+          height: 40px;
+          font-size: 0.95rem;
+          padding: 0 12px;
+        }
+        .eye-icon {
+          font-size: 1.1rem;
+          transform: translateY(15%);
+          right: 12px;
+        }
+        button {
+          padding: 10px;
+          font-size: 1rem;
+        }
+      }
+      .link {
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+    border: 0;
+    box-shadow: none;
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    form {
+      margin: 10px auto;
+      .form-group {
+        width: 95%;
+        margin-bottom: 8px;
+        label {
+          font-size: 0.85rem;
+        }
+        input {
+          height: 35px;
+          font-size: 0.85rem;
+          padding: 0 8px;
+        }
+        .eye-icon {
+          font-size: 1rem;
+          transform: translateY(12%);
+          right: 8px;
+        }
+        button {
+          padding: 8px;
+          font-size: 0.9rem;
+        }
+      }
+      .link {
+        font-size: 0.8rem;
+        margin-top: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+@use "./register-mixin" as register_mixins;
+
+.registration-cont {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #343d46;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.registration-box {
+  width: 46%;
+  height: auto;
+  max-width: 800px;
+  background-color: #282c34;
+  border-radius: 10px;
+  border: 3px solid #505258;
+  box-sizing: border-box;
+  padding: 30px;
+  transition: width 1s ease-in-out, height 1s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 10px 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    padding: 0 20px;
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 12px;
+      position: relative;
+
+      label {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #e0e0e0;
+        margin-bottom: 10px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        height: 40px;
+        border-radius: 8px;
+        padding: 0 18px;
+        border: 1px solid #606060;
+        background-color: #3a3f47;
+        color: white;
+        font-size: 1rem;
+        box-sizing: border-box;
+        &:focus {
+          outline: none;
+          border-color: #61dafb;
+          box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.5);
+        }
+        &::placeholder {
+          color: #a0a0a0;
+        }
+      }
+
+      .gender-select {
+        appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="%23e0e0e0" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 40px;
+      }
+
+      &.password-group {
+        input {
+          padding-right: 50px;
+        }
+        .eye-icon {
+          position: absolute;
+          right: 18px;
+          top: 50%;
+          transform: translateY(25%);
+          color: #a0a0a0;
+          cursor: pointer;
+          font-size: 1.3rem;
+          &:hover {
+            color: #61dafb;
+          }
+        }
+      }
+
+      .error,
+      .success {
+        font-size: 1rem;
+        text-align: center;
+      }
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px 20px;
+        background-color: #61dafb;
+        color: #282c34;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        &:hover {
+          background-color: #4fa3d1;
+          transform: translateY(-2px);
+        }
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .link {
+      color: #61dafb;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 15px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @include register_mixins.responsive-register-box;
+}
