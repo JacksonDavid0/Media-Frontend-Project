@@ -9,6 +9,14 @@ interface PictureData {
   uploadAt: string;
 }
 
+interface PostData {
+  _id: string;
+  author: string;
+  content: string;
+  image?: string;
+  likes: number;
+}
+
 // interface UserProfileData {
 //   username: string;
 //   firstname: string;
@@ -237,3 +245,15 @@ export const MyContextProvider = ({ children }: MyContextProviderProps) => {
     <MyContext.Provider value={contextValue}>{children}</MyContext.Provider>
   );
 };
+
+export function usePosts() {
+  const POSTS_API_URL = "http://localhost:3060/api/v1/post"; // Your post API endpoint
+  const { data, loading, error, refetch } = useApi(POSTS_API_URL);
+
+  return {
+    posts: data,
+    loadingPosts: loading,
+    postsError: error,
+    refetchPosts: refetch,
+  };
+}
