@@ -17,15 +17,6 @@ interface PostData {
   likes: number;
 }
 
-// interface UserProfileData {
-//   username: string;
-//   firstname: string;
-//   lastname: string;
-//   gender: string;
-//   email: string;
-//   picture?: PictureData;
-// }
-
 export interface UserProfileData {
   username: string;
   firstname: string;
@@ -127,6 +118,7 @@ export function useApi(url: string) {
       }
 
       const result = await response.json();
+
       setData(result);
     } catch (err: any) {
       setError(err.message || "An unknown error occurred.");
@@ -247,7 +239,7 @@ export const MyContextProvider = ({ children }: MyContextProviderProps) => {
 };
 
 export function usePosts() {
-  const POSTS_API_URL = "http://localhost:3060/api/v1/post"; // Your post API endpoint
+  const POSTS_API_URL = "http://localhost:3060/api/v1/post";
   const { data, loading, error, refetch } = useApi(POSTS_API_URL);
 
   return {
@@ -256,4 +248,68 @@ export function usePosts() {
     postsError: error,
     refetchPosts: refetch,
   };
+}
+
+export function usePostLikeDislike(refetchPosts: () => void) {
+  const LIKE_URL = "http://localhost:3060/api/v1/post/like";
+  const DISLIKE_URL = "http://localhost:3060/api/v1/post/dislike";
+
+  const likePost = async (postId: string) => {
+    try {
+      const response = await fetch(`${LIKE_URL}/${postId}`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        refetchPosts();
+        return { success: true };
+      } else {
+        return {
+          success: false,
+          message: result.message || "Failed to like post.",
+        };
+      }
+    } catch (e) {
+      console.error("Network error during like:", e);
+      return { success: false, message: "Network error. Could not like post." };
+    }
+  };
+
+  const dislikePost = async (postId: string) => {
+    try {
+      const response = await fetch(`${DISLIKE_URL}/${postId}`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        refetchPosts();
+        return { success: true };
+      } else {
+        return {
+          success: false,
+          message: result.message || "Failed to dislike post.",
+        };
+      }
+    } catch (e) {
+      console.error("Network error during dislike:", e);
+      return {
+        success: false,
+        message: "Network error. Could not dislike post.",
+      };
+    }
+  };
+
+  return { likePost, dislikePost };
 }
