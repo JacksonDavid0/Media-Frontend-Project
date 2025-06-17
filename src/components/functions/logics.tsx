@@ -257,7 +257,7 @@ export function usePostLikeDislike(refetchPosts: () => void) {
   const likePost = async (postId: string) => {
     try {
       const response = await fetch(`${LIKE_URL}/${postId}`, {
-        method: "POST",
+        method: "GET",
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
@@ -284,7 +284,7 @@ export function usePostLikeDislike(refetchPosts: () => void) {
   const dislikePost = async (postId: string) => {
     try {
       const response = await fetch(`${DISLIKE_URL}/${postId}`, {
-        method: "POST",
+        method: "GET",
         credentials: "include",
         headers: {
           "Content-Type": "application/json",

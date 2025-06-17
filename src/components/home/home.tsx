@@ -156,8 +156,8 @@ function HomePage() {
                     <div className="home-post-header">
                       <div className="home-post-header-author">
                         <img
-                          src={getImageUrl(post.authorImage.fileUrl)}
-                          alt={post.authorImage.filename}
+                          src={getImageUrl(post.authorImage?.fileUrl)}
+                          alt={post.authorImage?.filename}
                           className="home-post-avatar"
                           onError={(e) => {
                             e.currentTarget.src =
